@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-     <h1 class="text-3xl bg-red-400 font-bold underline">
-    Hello world!
+     <h1 class="text-3xl font-bold text-center p-2 mt-3">
+    Saas App Using Laravel and react with tailwind cs 
   </h1>
     </>
   )
