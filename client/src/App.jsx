@@ -1,18 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css'
+import Header from './components/Header'
+import Home from './page/Home'
+import Login from './page/authentication/Login'
+
+const AppRoutes = () => {
+  const location = useLocation()
 
   return (
     <>
-     <h1 class="text-3xl font-bold text-center p-2 mt-3">
-    Saas App Using Laravel and react with tailwind cs 
-  </h1>
+      {location.pathname !== '/login' && <Header />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
