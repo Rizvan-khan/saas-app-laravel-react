@@ -30,4 +30,5 @@ class RegisterRequest extends FormRequest
         'role' => 'nullable|in:user,admin'
     ];
     }
+    
 }

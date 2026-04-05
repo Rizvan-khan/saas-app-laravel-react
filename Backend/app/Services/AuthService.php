@@ -24,4 +24,20 @@ class AuthService
             'token' => $token
         ];
     }
+
+    public function login($data)
+    {
+        $user = User::where('email', $data['email'])->first();
+
+        if (!$user || !Hash::check($data['password'], $user->password)) {
+            throw new \Exception('Invalid credentials');
+        }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return [
+            'user' => $user,
+            'token' => $token
+        ];
+    }
 }
